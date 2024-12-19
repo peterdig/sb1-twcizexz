@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendations</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="header-title">
+                <i data-lucide="library" class="header-icon"></i>
+                <h1>Book Recommendations</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search by book title or author...">
+                <i data-lucide="search" class="search-icon"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <aside class="filter-panel">
+            <div class="filter-header">
+                <i data-lucide="sliders-horizontal"></i>
+                <h2>Filters</h2>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">
+                    <i data-lucide="filter"></i>
+                    <h3>Genre Filters</h3>
+                </div>
+                <div id="genreFilters" class="genre-buttons"></div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">
+                    <i data-lucide="star"></i>
+                    <h3>Minimum Rating</h3>
+                </div>
+                <div class="rating-filter">
+                    <input type="range" id="ratingFilter" min="0" max="5" step="0.5" value="0">
+                    <span id="ratingValue">0+ ⭐</span>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">
+                    <i data-lucide="calendar"></i>
+                    <h3>Publication Year</h3>
+                </div>
+                <div class="year-filter">
+                    <input type="number" id="yearMin" min="1900" max="2024">
+                    <span>to</span>
+                    <input type="number" id="yearMax" min="1900" max="2024">
+                </div>
+            </div>
+        </aside>
+
+        <section class="books-grid" id="booksGrid">
+            <!-- Books will be dynamically inserted here -->
+        </section>
+    </main>
+
+    <template id="bookCardTemplate">
+        <div class="book-card">
+            <div class="book-cover">
+                <img src="" alt="">
+            </div>
+            <div class="book-info">
+                <h3 class="book-title"></h3>
+                <p class="book-author"></p>
+                <div class="book-rating">
+                    <i data-lucide="star"></i>
+                    <span></span>
+                </div>
+                <p class="book-description"></p>
+                <div class="book-genres"></div>
+                <button class="recommend-button">
+                    <i data-lucide="book-open"></i>
+                    <span>Similar Books</span>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <div id="loader" class="loader hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Core modules -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

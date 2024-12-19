@@ -1,0 +1,3 @@
+/* Component specific styles */
+@import './components/filter-panel.css';
+@import './components/book-card.css';
